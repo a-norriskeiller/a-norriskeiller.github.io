@@ -19,6 +19,7 @@ body {
 .right-column {
     flex: 3;
     padding: 20px; 
+    background-color: #1e1e1e;
 }
 
 h1, h2 {
