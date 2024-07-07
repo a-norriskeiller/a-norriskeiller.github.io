@@ -1,0 +1,86 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark grey background */
+    color: #ffffff; /* White text */
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Left Column Styles */
+.left-column {
+    flex: 1;
+    padding: 20px;
+    background-color: #1e1e1e; /* Dark grey background for left column */
+}
+
+.left-column h1 {
+    margin: 0;
+}
+
+/* Right Column Styles */
+.right-column {
+    flex: 3;
+    padding: 20px;
+    background-color: #1e1e1e; /* Same dark grey background for right column */
+}
+
+/* Header and Section Styles */
+h1, h2, h3, h4 {
+    color: #ffffff; /* White text */
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul ul {
+    padding-left: 15px;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    color: #ffffff; /* White links */
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Entry Styles */
+.entry {
+    margin-bottom: 20px;
+}
+
+.options {
+    margin-top: 5px;
+}
+
+.options a {
+    margin-right: 10px;
+    color: #ffffff; /* White links */
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+.abstract-content {
+    display: none; /* Hidden by default */
+    margin-top: 10px;
+    background-color: #2e2e2e; /* Slightly lighter dark grey for contrast */
+    padding: 10px;
+    border-radius: 5px;
+}
+
