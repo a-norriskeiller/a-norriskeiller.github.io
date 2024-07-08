@@ -12,20 +12,23 @@
             <h1>Agnes<br>Norris Keiller</h1>
             <nav>
                 <ul>
-                    <li><a href="#research">Research</a></li>
-                    <ul>
-                        <li><a href="#publications">Publications</a></li>
-                        <li><a href="#work-in-progress">Work in Progress</a></li>
-                        <li><a href="#policy-writing">Policy Writing</a></li>
-                    </ul>
-                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#" class="nav-link" data-target="research">Research</a></li>
+                    <li><a href="#" class="nav-link" data-target="cv">CV</a></li>
                 </ul>
             </nav>
         </div>
         <div class="right-column">
-            <section id="research">
+            <div id="photo-container">
+                <img id="random-photo" src="" alt="Random Photo">
+            </div>
+            <section id="research" class="content-section">
                 <h2>Research</h2>
-                <section id="publications">
+                <ul>
+                    <li><a href="#" class="toggle-section" data-target="publications">Publications</a></li>
+                    <li><a href="#" class="toggle-section" data-target="work-in-progress">Work in Progress</a></li>
+                    <li><a href="#" class="toggle-section" data-target="policy-writing">Policy Writing</a></li>
+                </ul>
+                <section id="publications" class="research-section">
                     <h3>Publications</h3>
                     <div class="entry">
                         <h4>Title of Publication 1</h4>
@@ -40,7 +43,7 @@
                     </div>
                     <!-- Add more entries as needed -->
                 </section>
-                <section id="work-in-progress">
+                <section id="work-in-progress" class="research-section">
                     <h3>Work in Progress</h3>
                     <div class="entry">
                         <h4>Title of Work in Progress 1</h4>
@@ -55,7 +58,7 @@
                     </div>
                     <!-- Add more entries as needed -->
                 </section>
-                <section id="policy-writing">
+                <section id="policy-writing" class="research-section">
                     <h3>Policy Writing</h3>
                     <div class="entry">
                         <h4>Title of Policy Writing 1</h4>
@@ -71,9 +74,13 @@
                     <!-- Add more entries as needed -->
                 </section>
             </section>
-            <section id="cv">
+            <section id="cv" class="content-section">
                 <h2>CV</h2>
                 <p>Details about CV go here...</p>
+                <p>Quote... (<a href="#" class="reveal-quote">click to reveal</a>)</p>
+                <div id="quote-content" class="hidden">
+                    <p>This is the hidden paragraph of text that will be revealed when the quote link is clicked.</p>
+                </div>
             </section>
         </div>
     </div>
