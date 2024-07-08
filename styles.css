@@ -40,10 +40,6 @@ nav ul {
     padding: 0;
 }
 
-nav ul ul {
-    padding-left: 15px;
-}
-
 nav ul li {
     margin: 10px 0;
 }
@@ -54,6 +50,25 @@ nav ul li a {
 }
 
 nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Research Section Links */
+#research ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#research ul li {
+    margin: 10px 0;
+}
+
+#research ul li a {
+    color: #ffffff; /* White links */
+    text-decoration: none;
+}
+
+#research ul li a:hover {
     text-decoration: underline;
 }
 
@@ -84,3 +99,39 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
+/* Research Section Styles */
+.research-section {
+    display: none; /* Hidden by default */
+    margin-top: 20px;
+}
+
+/* Photo Container Styles */
+#photo-container {
+    text-align: center;
+    padding: 20px;
+}
+
+#random-photo {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Quote Reveal Styles */
+.hidden {
+    display: none;
+}
+
+#quote-content {
+    display: none;
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#quote-content.visible {
+    display: block;
+    opacity: 1;
+}
