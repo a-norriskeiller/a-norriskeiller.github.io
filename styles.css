@@ -22,11 +22,41 @@ body {
     margin: 0;
 }
 
+.quote-link {
+    position: relative;
+    margin-top: 10px;
+}
+
+.quote {
+    display: none;
+    font-size: small;
+    margin-top: 1cm;
+    color: #ffffff; /* White text */
+}
+
 /* Right Column Styles */
 .right-column {
     flex: 3;
     padding: 20px;
     background-color: #1e1e1e; /* Same dark grey background for right column */
+    position: relative;
+}
+
+.quote-display {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.quote-display p {
+    color: #ffffff; /* White text */
 }
 
 /* Header and Section Styles */
@@ -114,24 +144,4 @@ nav ul li a:hover {
 #random-photo {
     max-width: 100%;
     height: auto;
-}
-
-/* Quote Reveal Styles */
-.hidden {
-    display: none;
-}
-
-#quote-content {
-    display: none;
-    background-color: #2e2e2e;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-#quote-content.visible {
-    display: block;
-    opacity: 1;
 }
