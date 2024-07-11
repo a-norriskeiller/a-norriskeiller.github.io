@@ -59,6 +59,18 @@ body {
     color: #ffffff; /* White text */
 }
 
+/* Blackout effect */
+.blacked-out::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9); /* Almost black background with some opacity */
+    z-index: 500; /* Ensure it's above all other content */
+}
+
 /* Header and Section Styles */
 h1, h2, h3, h4 {
     color: #ffffff; /* White text */
