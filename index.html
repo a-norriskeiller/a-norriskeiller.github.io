@@ -16,10 +16,15 @@
                     <li><a href="#" class="nav-link" data-target="cv">CV</a></li>
                 </ul>
             </nav>
+            <p class="quote-link">
+                Quote<a href="#" class="reveal-quote">...</a>
+                <br>
+                <span id="quote" class="quote">This is the hidden quote that will be revealed in the right pane.</span>
+            </p>
         </div>
         <div class="right-column">
             <div id="photo-container">
-                <img id="random-photo" src="" alt="Random Photo">
+                <img id="random-photo" src="images/pondweed1.jpg" alt="Random Photo">
             </div>
             <section id="research" class="content-section">
                 <h2>Research</h2>
@@ -77,11 +82,10 @@
             <section id="cv" class="content-section">
                 <h2>CV</h2>
                 <p>Details about CV go here...</p>
-                <p>Quote... (<a href="#" class="reveal-quote">click to reveal</a>)</p>
-                <div id="quote-content" class="hidden">
-                    <p>This is the hidden paragraph of text that will be revealed when the quote link is clicked.</p>
-                </div>
             </section>
+            <div id="quote-display" class="quote-display">
+                <p>This is the hidden paragraph of text that will be revealed when the quote link is clicked.</p>
+            </div>
         </div>
     </div>
     <script src="scripts.js"></script>
