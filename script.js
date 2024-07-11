@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const photos = [
-        'images/clouds.jpg'
-        'images/pondweed1.jpg',
-        'images/pondweed2.jpg',
-        'images/shadow.jpg',
+        'images/photo1.jpg',
+        'images/photo2.jpg',
+        'images/photo3.jpg'
         // Add more photo paths as needed
     ];
 
@@ -35,32 +34,4 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.research-section').forEach(section => {
                 section.style.display = 'none';
             });
-            if (!isVisible) {
-                targetElement.style.display = 'block';
-            }
-        });
-    });
-
-    // Smooth scrolling
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                document.getElementById('photo-container').style.display = 'none';
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-
-    // Quote reveal
-    const revealQuoteLink = document.querySelector('.reveal-quote');
-    const quoteContent = document.getElementById('quote-content');
-    
-    revealQuoteLink.addEventListener('click', function (event) {
-        event.preventDefault();
-        quoteContent.classList.toggle('visible');
-    });
-});
+            if (!isVisible
