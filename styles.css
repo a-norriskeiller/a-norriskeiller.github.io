@@ -157,3 +157,22 @@ nav ul li a:hover {
     max-width: 100%;
     height: auto;
 }
+
+/* Content Section Initial State */
+.content-section {
+    display: none;
+}
+
+/* Fade-in Animation */
+.fade-in {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
