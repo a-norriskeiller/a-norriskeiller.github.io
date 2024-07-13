@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     const photos = [
-        'images/clouds.jpg',
-        'images/shadow.jpg',
-        'images/pondweed1.jpg',
-        'images/pondweed2.jpg'
+        'images/photo1.jpg',
+        'images/photo2.jpg',
+        'images/photo3.jpg'
         // Add more photo paths as needed
     ];
 
-   const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
+    const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
     const randomPhotoElement = document.getElementById('random-photo');
     randomPhotoElement.src = randomPhoto;
     randomPhotoElement.alt = 'Random Photo';
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Toggle research sections
     const toggleSectionLinks = document.querySelectorAll('.toggle-section');
     toggleSectionLinks.forEach(link => {
         link.addEventListener('click', function (event) {
@@ -36,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
             photoContainer.style.display = 'none';
             document.querySelectorAll('.research-section').forEach(section => section.style.display = 'none');
             targetSection.style.display = 'block';
-            targetSection.scrollIntoView({ behavior: 'smooth' });
         });
     });
 
@@ -54,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     });
 
-    // Scroll to section
+    // Scroll to section with fade-in effect
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
@@ -62,9 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetSection = document.getElementById(this.dataset.target);
             const photoContainer = document.getElementById('photo-container');
             photoContainer.style.display = 'none';
-            document.querySelectorAll('.content-section').forEach(section => section.style.display = 'none');
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+                section.classList.remove('fade-in');
+            });
             targetSection.style.display = 'block';
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+            targetSection.classList.add('fade-in');
         });
     });
 });
