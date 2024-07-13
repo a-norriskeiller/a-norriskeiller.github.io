@@ -48,7 +48,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    background-color: #1e1e1e; /* Same dark grey background for right column */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
