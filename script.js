@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     randomPhotoElement.alt = 'Random Photo';
 
     const abstractLinks = document.querySelectorAll('.abstract-link');
-    
+
     abstractLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
@@ -31,45 +31,40 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleSectionLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            const isVisible = targetElement.style.display === 'block';
-            document.querySelectorAll('.research-section').forEach(section => {
-                section.style.display = 'none';
-            });
-            if (!isVisible) {
-                targetElement.style.display = 'block';
-            }
+            const targetSection = document.getElementById(this.dataset.target);
+            const photoContainer = document.getElementById('photo-container');
+            photoContainer.style.display = 'none';
+            document.querySelectorAll('.research-section').forEach(section => section.style.display = 'none');
+            targetSection.style.display = 'block';
+            targetSection.scrollIntoView({ behavior: 'smooth' });
         });
     });
 
-    // Smooth scrolling
-    const navLinks = document.querySelectorAll('nav a');
+    // Reveal quote
+    const quoteLink = document.querySelector('.reveal-quote');
+    quoteLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        const quoteDisplay = document.getElementById('quote-display');
+        quoteDisplay.style.display = 'block';
+        const rightColumn = document.querySelector('.right-column');
+        rightColumn.classList.add('blacked-out');
+        setTimeout(() => {
+            quoteDisplay.style.display = 'none';
+            rightColumn.classList.remove('blacked-out');
+        }, 5000);
+    });
+
+    // Scroll to section
+    const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
+            const targetSection = document.getElementById(this.dataset.target);
+            const photoContainer = document.getElementById('photo-container');
+            photoContainer.style.display = 'none';
+            document.querySelectorAll('.content-section').forEach(section => section.style.display = 'none');
+            targetSection.style.display = 'block';
+            targetSection.scrollIntoView({ behavior: 'smooth' });
         });
-    });
-
-    // Quote reveal
-    const revealQuoteLink = document.querySelector('.reveal-quote');
-    const quoteContent = document.getElementById('quote');
-    const quoteDisplay = document.getElementById('quote-display');
-
-    revealQuoteLink.addEventListener('click', function (event) {
-        event.preventDefault();
-        quoteDisplay.querySelector('p').textContent = quoteContent.textContent;
-        document.querySelector('.right-column').classList.add('blacked-out');
-        quoteDisplay.style.display = 'block';
-    });
-
-    quoteDisplay.addEventListener('click', function () {
-        this.style.display = 'none';
-        document.querySelector('.right-column').classList.remove('blacked-out');
     });
 });
