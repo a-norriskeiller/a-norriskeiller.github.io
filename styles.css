@@ -1,8 +1,7 @@
 /* Global Styles */
 body {
     margin: 0;
-    /*font-family: Trebuchet MS, sans-serif;*/
-    font-family: "Lucida Console", monospace;
+    font-family: Arial, sans-serif;
     background-color: #121212; /* Dark grey background */
     color: #ffffff; /* White text */
 }
@@ -21,7 +20,6 @@ body {
 
 .left-column h1 {
     margin: 0;
-    font-size: 16pt;
     cursor: pointer; /* Make the header clickable */
 }
 
@@ -32,14 +30,14 @@ body {
 
 .quote {
     display: none;
-    font-size: 12pt;
+    font-size: small;
     margin-top: 1cm;
     color: #ffffff; /* White text */
     animation: fadeIn 1s forwards; /* Apply fade-in animation */
 }
 
 .quote-attribution {
-    font-size: 10pt;
+    font-size: small;
     font-style: normal;
     color: #ffffff; /* White text */
 }
@@ -55,14 +53,14 @@ body {
 .quote-display {
     display: none;
     position: absolute;
-    top: 20%;
-    left: 20%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background-color: #1e1e1e; /* Match the background color of the left pane */
     padding: 20px;
-    border-radius: 20px;
-    text-align: left;
-    z-index: 550;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
 }
 
 .quote-display p {
@@ -77,7 +75,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #1e1e1e;
+    background: rgba(0, 0, 0, 0.9); /* Almost black background with some opacity */
     z-index: 500; /* Ensure it's above all other content */
 }
 
@@ -166,6 +164,7 @@ nav ul li a:hover {
 #random-photo {
     max-width: 100%;
     height: auto;
+    display: none; /* Hide photo initially */
 }
 
 /* Content Section Initial State */
