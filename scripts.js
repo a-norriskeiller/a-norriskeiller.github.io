@@ -31,8 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function (event) {
             event.preventDefault();
             const targetSection = document.getElementById(this.dataset.target);
-            const photoContainer = document.getElementById('photo-container');
-            photoContainer.style.display = 'none';
             document.querySelectorAll('.research-section').forEach(section => section.style.display = 'none');
             targetSection.style.display = 'block';
         });
@@ -52,11 +50,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     });
 
-    // Scroll to section with fade-in effect
+    // Handle navigation links click
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
+
+            if (this.id === 'home-link') {
+                location.reload(); // Reload the page
+                return;
+            }
+
             const targetSection = document.getElementById(this.dataset.target);
             const photoContainer = document.getElementById('photo-container');
             photoContainer.style.display = 'none';
