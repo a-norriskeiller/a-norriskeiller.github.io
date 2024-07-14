@@ -19,8 +19,8 @@ body {
 }
 
 .left-column h1 {
-    font-size: 16pt;
     margin: 0;
+    font-size: 16pt;
     cursor: pointer; /* Make the header clickable */
 }
 
@@ -38,8 +38,8 @@ body {
 }
 
 .quote-attribution {
-    font-size: 10pt;
-    font-style: italic;
+    font-size: small;
+    font-style: normal;
     color: #ffffff; /* White text */
 }
 
@@ -76,7 +76,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.9); /* Almost black background with some opacity */
+    background: #1e1e1e;
     z-index: 500; /* Ensure it's above all other content */
 }
 
@@ -174,7 +174,7 @@ nav ul li a:hover {
 
 /* Fade-in Animation */
 .fade-in {
-    animation: fadeIn 1s;
+    animation: fadeIn 2s;
 }
 
 @keyframes fadeIn {
@@ -197,5 +197,5 @@ nav ul li a:hover {
 }
 
 .quote.fade-in {
-    animation: fadeInQuote 1s forwards; /* Apply fade-in animation */
+    animation: fadeInQuote 2s forwards; /* Apply fade-in animation */
 }
