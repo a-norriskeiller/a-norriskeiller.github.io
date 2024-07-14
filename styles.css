@@ -68,7 +68,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.9); /* Almost black background with some opacity */
+    background: #1e1e1e;
+    /* background: rgba(0, 0, 0, 0.9); Almost black background with some opacity */
     z-index: 500; /* Ensure it's above all other content */
 }
 
@@ -137,7 +138,7 @@ nav ul li a:hover {
 .abstract-content {
     display: none; /* Hidden by default */
     margin-top: 10px;
-    background-color: #2e2e2e; /* Slightly lighter dark grey for contrast */
+    background-color: #1e1e1e; /* Slightly lighter dark grey for contrast */
     padding: 10px;
     border-radius: 5px;
 }
@@ -166,7 +167,7 @@ nav ul li a:hover {
 
 /* Fade-in Animation */
 .fade-in {
-    animation: fadeIn 1s;
+    animation: fadeIn 2s;
 }
 
 @keyframes fadeIn {
