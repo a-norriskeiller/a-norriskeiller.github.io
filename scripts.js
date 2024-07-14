@@ -15,9 +15,13 @@ function getRandomPhoto() {
         const randomPhoto = getRandomPhoto();
         const randomPhotoElement = document.getElementById('random-photo');
         randomPhotoElement.src = randomPhoto;
+        randomPhotoElement.style.display = 'block'; // Ensure the photo is displayed
     }
 
-    showRandomPhoto(); // Show random photo on initial load
+    // Show random photo on home link click
+    document.getElementById('home-link').addEventListener('click', function () {
+        location.reload();
+    });
 
     const abstractLinks = document.querySelectorAll('.abstract-link');
     abstractLinks.forEach(link => {
@@ -71,7 +75,7 @@ function getRandomPhoto() {
             event.preventDefault();
 
             if (this.id === 'home-link') {
-                location.reload();
+                showRandomPhoto(); // Show new random photo
                 return;
             }
 
@@ -82,11 +86,13 @@ function getRandomPhoto() {
             });
             targetSection.style.display = 'block';
             targetSection.classList.add('fade-in');
+
+            // Hide the photo
+            const photoContainer = document.getElementById('photo-container');
+            photoContainer.style.display = 'none';
         });
     });
 
-    // Set up the click event for the home link
-    document.getElementById('home-link').addEventListener('click', function () {
-        showRandomPhoto(); // Show new random photo
-    });
+    // Initial random photo load
+    showRandomPhoto();
 });
