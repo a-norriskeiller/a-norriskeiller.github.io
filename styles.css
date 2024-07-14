@@ -1,7 +1,8 @@
 /* Global Styles */
 body {
     margin: 0;
-    font-family: Trebuchet MS, sans-serif;
+    /*font-family: Trebuchet MS, sans-serif;*/
+    font-family: "Lucida Console", monospace;
     background-color: #121212; /* Dark grey background */
     color: #ffffff; /* White text */
 }
@@ -31,14 +32,14 @@ body {
 
 .quote {
     display: none;
-    font-size: 10pt;
+    font-size: 12pt;
     margin-top: 1cm;
     color: #ffffff; /* White text */
     animation: fadeIn 1s forwards; /* Apply fade-in animation */
 }
 
 .quote-attribution {
-    font-size: small;
+    font-size: 10pt;
     font-style: normal;
     color: #ffffff; /* White text */
 }
@@ -54,14 +55,14 @@ body {
 .quote-display {
     display: none;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 20%;
+    left: 20%;
     transform: translate(-50%, -50%);
     background-color: #1e1e1e; /* Match the background color of the left pane */
     padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    z-index: 1000;
+    border-radius: 20px;
+    text-align: left;
+    z-index: 550;
 }
 
 .quote-display p {
