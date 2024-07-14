@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
         'images/shadow.jpg'
         // Add more photo paths as needed
     ];
-function getRandomPhoto() {
+
+    function getRandomPhoto() {
         const randomIndex = Math.floor(Math.random() * photos.length);
         return photos[randomIndex];
     }
@@ -18,9 +19,10 @@ function getRandomPhoto() {
         randomPhotoElement.style.display = 'block'; // Ensure the photo is displayed
     }
 
-    // Show random photo on home link click
+    // Show random photo on initial load and when the home link is clicked
     document.getElementById('home-link').addEventListener('click', function () {
-        location.reload();
+        showRandomPhoto();
+        showSection('home');
     });
 
     const abstractLinks = document.querySelectorAll('.abstract-link');
@@ -74,11 +76,6 @@ function getRandomPhoto() {
         link.addEventListener('click', function (event) {
             event.preventDefault();
 
-            if (this.id === 'home-link') {
-                showRandomPhoto(); // Show new random photo
-                return;
-            }
-
             const targetSection = document.getElementById(this.dataset.target);
             document.querySelectorAll('.content-section').forEach(section => {
                 section.style.display = 'none';
@@ -95,4 +92,15 @@ function getRandomPhoto() {
 
     // Initial random photo load
     showRandomPhoto();
+
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    }
 });
