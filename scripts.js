@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const photos = [
-        'images/pondweed1.jpg',
-        'images/pondweed2.jpg',
+        //'images/pondweed1.jpg',
+        //'images/pondweed2.jpg',
         'images/clouds.jpg',
         'images/shadow.jpg'
         // Add more photo paths as needed
