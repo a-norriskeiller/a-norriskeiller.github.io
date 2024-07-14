@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'images/shadow.jpg'
         // Add more photo paths as needed
     ];
-
-    function getRandomPhoto() {
+function getRandomPhoto() {
         const randomIndex = Math.floor(Math.random() * photos.length);
         return photos[randomIndex];
     }
@@ -41,6 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetSection = document.getElementById(this.dataset.target);
             document.querySelectorAll('.research-section').forEach(section => section.style.display = 'none');
             targetSection.style.display = 'block';
+
+            // Fade in the new section
+            const contentSections = document.querySelectorAll('.content-section');
+            contentSections.forEach(section => {
+                section.style.display = 'none';
+                section.classList.remove('fade-in');
+            });
+            document.querySelector('.right-column').classList.remove('blacked-out');
         });
     });
 
