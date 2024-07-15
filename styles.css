@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
     margin: 0;
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #121212; /* Dark grey background */
     color: #ffffff; /* White text */
 }
@@ -32,6 +32,13 @@ body {
     display: none;
     font-size: small;
     margin-top: 1cm;
+    color: #ffffff; /* White text */
+    animation: fadeIn 1s forwards; /* Apply fade-in animation */
+}
+
+.quote-attribution {
+    font-size: small;
+    font-style: normal;
     color: #ffffff; /* White text */
 }
 
@@ -157,6 +164,7 @@ nav ul li a:hover {
 #random-photo {
     max-width: 100%;
     height: auto;
+    display: none; /* Hide photo initially */
 }
 
 /* Content Section Initial State */
@@ -176,4 +184,18 @@ nav ul li a:hover {
     to {
         opacity: 1;
     }
+}
+
+/* Fade-in Animation for Quote */
+@keyframes fadeInQuote {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.quote-display.fade-in {
+    animation: fadeInQuote 1s forwards; /* Apply fade-in animation */
 }
