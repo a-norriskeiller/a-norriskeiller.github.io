@@ -16,6 +16,9 @@ body {
     flex: 1;
     padding: 20px;
     background-color: #1e1e1e; /* Dark grey background for left column */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .left-column h1 {
@@ -53,9 +56,9 @@ body {
 .quote-display {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -20%);
     background-color: #1e1e1e; /* Match the background color of the left pane */
     padding: 20px;
     border-radius: 10px;
@@ -100,7 +103,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: none; /* Remove underline on hover */
 }
 
 /* Research Section Links */
@@ -119,7 +122,7 @@ nav ul li a:hover {
 }
 
 #research ul li a:hover {
-    text-decoration: underline;
+    text-decoration: none; /* Remove underline on hover */
 }
 
 /* Entry Styles */
@@ -138,7 +141,7 @@ nav ul li a:hover {
 }
 
 .options a:hover {
-    text-decoration: underline;
+    text-decoration: none; /* Remove underline on hover */
 }
 
 .abstract-content {
@@ -159,11 +162,14 @@ nav ul li a:hover {
 #photo-container {
     text-align: center;
     padding: 20px;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 #random-photo {
     max-width: 100%;
     height: auto;
+    max-height: 100vh;
     display: none; /* Hide photo initially */
 }
 
