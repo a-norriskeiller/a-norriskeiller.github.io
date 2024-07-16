@@ -22,11 +22,53 @@ body {
     margin: 0;
 }
 
+.quote-link {
+    position: relative;
+    margin-top: 10px;
+}
+
+.quote {
+    display: none;
+    font-size: small;
+    margin-top: 1cm;
+    color: #ffffff; /* White text */
+}
+
 /* Right Column Styles */
 .right-column {
     flex: 3;
     padding: 20px;
     background-color: #1e1e1e; /* Same dark grey background for right column */
+    position: relative;
+}
+
+.quote-display {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.quote-display p {
+    color: #ffffff; /* White text */
+}
+
+/* Blackout effect */
+.blacked-out::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9); /* Almost black background with some opacity */
+    z-index: 500; /* Ensure it's above all other content */
 }
 
 /* Header and Section Styles */
@@ -36,7 +78,6 @@ h1, h2, h3, h4 {
 
 /* Navigation Styles */
 nav ul {
-    color: #ffffff; /* White text */
     list-style-type: none;
     padding: 0;
 }
@@ -117,22 +158,21 @@ nav ul li a:hover {
     height: auto;
 }
 
-/* Quote Reveal Styles */
-.hidden {
+/* Content Section Initial State */
+.content-section {
     display: none;
 }
 
-#quote-content {
-    display: none;
-    background-color: #2e2e2e;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+/* Fade-in Animation */
+.fade-in {
+    animation: fadeIn 1s;
 }
 
-#quote-content.visible {
-    display: block;
-    opacity: 1;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
