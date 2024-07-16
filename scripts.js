@@ -4,14 +4,12 @@ document.addEventListener('DOMContentLoaded', function () {
         'images/shadow.jpg'
         // Add more photo paths as needed
     ];
-
+ 
     const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
-    const randomPhotoElement = document.getElementById('random-photo');
-    randomPhotoElement.src = randomPhoto;
-    randomPhotoElement.alt = 'Random Photo';
+    document.getElementById('random-photo').src = randomPhoto;
 
     const abstractLinks = document.querySelectorAll('.abstract-link');
-
+    
     abstractLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
@@ -24,44 +22,43 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Toggle research sections
     const toggleSectionLinks = document.querySelectorAll('.toggle-section');
     toggleSectionLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
-            const targetSection = document.getElementById(this.dataset.target);
-            document.querySelectorAll('.research-section').forEach(section => section.style.display = 'none');
-            targetSection.style.display = 'block';
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            const isVisible = targetElement.style.display === 'block';
+            document.querySelectorAll('.research-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            if (!isVisible) {
+                targetElement.style.display = 'block';
+            }
         });
     });
 
-    // Reveal quote
-    const quoteLink = document.querySelector('.reveal-quote');
-    quoteLink.addEventListener('click', function (event) {
-        event.preventDefault();
-        const quoteDisplay = document.getElementById('quote-display');
-        quoteDisplay.style.display = 'block';
-        const rightColumn = document.querySelector('.right-column');
-        rightColumn.classList.add('blacked-out');
-        setTimeout(() => {
-            quoteDisplay.style.display = 'none';
-            rightColumn.classList.remove('blacked-out');
-        }, 5000);
-    });
-
-    // Handle navigation links click
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Smooth scrolling
+    const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
-            const targetSection = document.getElementById(this.dataset.target);
-            const photoContainer = document.getElementById('photo-container');
-            photoContainer.style.display = 'none';
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.style.display = 'none';
-                section.classList.remove('fade-in');
-            });
-            targetSection.style.display = 'block';
-            targetSection.classList.add('fade-in');
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                document.getElementById('photo-container').style.display = 'none';
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
         });
+    });
+
+    // Quote reveal
+    const revealQuoteLink = document.querySelector('.reveal-quote');
+    const quoteContent = document.getElementById('quote-content');
+    
+    revealQuoteLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        quoteContent.classList.toggle('visible');
     });
 });
