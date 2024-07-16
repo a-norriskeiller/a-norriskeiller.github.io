@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const photos = [
         'images/clouds.jpg',
         'images/shadow.jpg'
-        // Add more photo paths as needed
     ];
 
     function getRandomPhoto() {
@@ -101,9 +100,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('cv-link').addEventListener('click', function () {
+        window.open('https://www.dropbox.com/s/your-cv-link.pdf', '_blank');
         showRandomPhoto();
         hideQuote();
     });
 
+    // Show a random photo on initial page load
     showRandomPhoto();
 });
