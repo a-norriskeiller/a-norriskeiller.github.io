@@ -30,6 +30,13 @@ body {
     margin-top: 10px;
 }
 
+.quote-reveal {
+    color: #ffffff; /* White text */
+    position: relative;
+    font-style: normal;
+    margin-top: 10px;
+}
+
 .quote {
     display: none;
     font-size: small;
