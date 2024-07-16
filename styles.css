@@ -36,6 +36,7 @@ h1, h2, h3, h4 {
 
 /* Navigation Styles */
 nav ul {
+    color: #ffffff; /* White text */
     list-style-type: none;
     padding: 0;
 }
