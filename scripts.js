@@ -39,26 +39,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Smooth scrolling
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                document.getElementById('photo-container').style.display = 'none';
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-
-    // Quote reveal
-    const revealQuoteLink = document.querySelector('.reveal-quote');
-    const quoteContent = document.getElementById('quote-content');
-    
-    revealQuoteLink.addEventListener('click', function (event) {
+    // Reveal quote
+    const quoteLink = document.querySelector('.reveal-quote');
+    quoteLink.addEventListener('click', function (event) {
         event.preventDefault();
-        quoteContent.classList.toggle('visible');
+        const quoteDisplay = document.getElementById('quote-display');
+        quoteDisplay.style.display = 'block';
+        const rightColumn = document.querySelector('.right-column');
+        rightColumn.classList.add('blacked-out');
+        setTimeout(() => {
+            quoteDisplay.style.display = 'none';
+            rightColumn.classList.remove('blacked-out');
+        }, 5000);
     });
 });
