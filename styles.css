@@ -161,6 +161,12 @@ nav ul li a:hover {
     padding: 20px;
 }
 
+.center-fit {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+}
+
 #random-photo {
     max-width: 100%;
     height: auto;
