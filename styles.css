@@ -24,7 +24,9 @@ body {
 }
 
 .quote-link {
+    color: #ffffff; /* White text */
     position: relative;
+    font-style: normal;
     margin-top: 10px;
 }
 
