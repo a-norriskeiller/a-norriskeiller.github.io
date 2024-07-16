@@ -1,15 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     const photos = [
-        'images/clouds.jpg',
-        'images/shadow.jpg'
+        'images/photo1.jpg',
+        'images/photo2.jpg',
+        'images/photo3.jpg'
         // Add more photo paths as needed
     ];
- 
+
     const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
-    document.getElementById('random-photo').src = randomPhoto;
+    const randomPhotoElement = document.getElementById('random-photo');
+    randomPhotoElement.src = randomPhoto;
+    randomPhotoElement.alt = 'Random Photo';
 
     const abstractLinks = document.querySelectorAll('.abstract-link');
-    
+
     abstractLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
@@ -22,20 +25,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Toggle research sections
     const toggleSectionLinks = document.querySelectorAll('.toggle-section');
     toggleSectionLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            const isVisible = targetElement.style.display === 'block';
-            document.querySelectorAll('.research-section').forEach(section => {
-                section.style.display = 'none';
-            });
-            if (!isVisible) {
-                targetElement.style.display = 'block';
-            }
+            const targetSection = document.getElementById(this.dataset.target);
+            const photoContainer = document.getElementById('photo-container');
+            photoContainer.style.display = 'none';
+            document.querySelectorAll('.research-section').forEach(section => section.style.display = 'none');
+            targetSection.style.display = 'block';
         });
     });
 
@@ -51,5 +49,22 @@ document.addEventListener('DOMContentLoaded', function () {
             quoteDisplay.style.display = 'none';
             rightColumn.classList.remove('blacked-out');
         }, 5000);
+    });
+
+    // Scroll to section with fade-in effect
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const targetSection = document.getElementById(this.dataset.target);
+            const photoContainer = document.getElementById('photo-container');
+            photoContainer.style.display = 'none';
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+                section.classList.remove('fade-in');
+            });
+            targetSection.style.display = 'block';
+            targetSection.classList.add('fade-in');
+        });
     });
 });
