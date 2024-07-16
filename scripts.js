@@ -53,12 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
-
-            if (this.id === 'home-link') {
-                location.reload(); // Reload the page
-                return;
-            }
-
             const targetSection = document.getElementById(this.dataset.target);
             const photoContainer = document.getElementById('photo-container');
             photoContainer.style.display = 'none';
