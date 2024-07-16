@@ -9,23 +9,28 @@
 <body>
     <div class="container">
         <div class="left-column">
-            <h1>Agnes<br>Norris Keiller</h1>
+            <h1 id="home-link">Agnes<br>Norris Keiller</h1>
             <nav>
                 <ul>
                     <li><a href="#" class="nav-link" data-target="research">Research</a></li>
-                    <li><a href="https://www.dropbox.com/s/your-cv-link.pdf" target="_blank" class="nav-link">CV</a></li>
+                    <li><a href="https://www.dropbox.com/s/your-cv-link.pdf" target="_blank" class="nav-link" id="cv-link">CV</a></li>
                 </ul>
             </nav>
             <p class="quote-link">
                 Quote... (<a href="#" class="reveal-quote">click to reveal</a>)
                 <br>
-                <span id="quote" class="quote">This is the hidden quote that will be revealed in the right pane.</span>
+                <span id="quote" class="quote">
+                    "This is the hidden quote that will be revealed in the right pane."
+                    <span class="quote-attribution"><br><br>- Agnes Norris Keiller, <em>Source Title</em></span>
+                </span>
             </p>
         </div>
         <div class="right-column">
-            <div id="photo-container">
-                <img id="random-photo" src="images/default-photo.jpg" alt="Random Photo">
-            </div>
+            <section id="home" class="content-section">
+                <div id="photo-container">
+                    <img id="random-photo" src="" alt="Random Photo">
+                </div>
+            </section>
             <section id="research" class="content-section">
                 <h2>Research</h2>
                 <ul>
@@ -78,10 +83,6 @@
                     </div>
                     <!-- Add more entries as needed -->
                 </section>
-            </section>
-            <section id="cv" class="content-section">
-                <h2>CV</h2>
-                <p>Details about CV go here...</p>
             </section>
             <div id="quote-display" class="quote-display">
                 <p>This is the hidden paragraph of text that will be revealed when the quote link is clicked.</p>
