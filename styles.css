@@ -20,35 +20,6 @@ body {
 
 .left-column h1 {
     margin: 0;
-    cursor: pointer; /* Make the header clickable */
-}
-
-.quote-link {
-    color: #ffffff; /* White text */
-    position: relative;
-    font-style: normal;
-    margin-top: 10px;
-}
-
-.quote-reveal {
-    color: #ffffff; /* White text */
-    position: relative;
-    font-style: normal;
-    margin-top: 10px;
-}
-
-.quote {
-    display: none;
-    font-size: small;
-    margin-top: 1cm;
-    color: #ffffff; /* White text */
-    animation: fadeIn 1s forwards; /* Apply fade-in animation */
-}
-
-.quote-attribution {
-    font-size: small;
-    font-style: normal;
-    color: #ffffff; /* White text */
 }
 
 /* Right Column Styles */
@@ -56,36 +27,6 @@ body {
     flex: 3;
     padding: 20px;
     background-color: #1e1e1e; /* Same dark grey background for right column */
-    position: relative;
-}
-
-.quote-display {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #1e1e1e; /* Match the background color of the left pane */
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    z-index: 1000;
-}
-
-.quote-display p {
-    color: #ffffff; /* White text */
-}
-
-/* Blackout effect */
-.blacked-out::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.9); /* Almost black background with some opacity */
-    z-index: 500; /* Ensure it's above all other content */
 }
 
 /* Header and Section Styles */
@@ -170,47 +111,27 @@ nav ul li a:hover {
     padding: 20px;
 }
 
-.center-fit {
-    max-width: 100%;
-    max-height: 100vh;
-    margin: auto;
-}
-
 #random-photo {
     max-width: 100%;
-    max-height: 100vh;
-    display: none; /* Hide photo initially */
+    height: auto;
 }
 
-/* Content Section Initial State */
-.content-section {
+/* Quote Reveal Styles */
+.hidden {
     display: none;
 }
 
-/* Fade-in Animation */
-.fade-in {
-    animation: fadeIn 1s;
+#quote-content {
+    display: none;
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Fade-in Animation for Quote */
-@keyframes fadeInQuote {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.quote-display.fade-in {
-    animation: fadeInQuote 1s forwards; /* Apply fade-in animation */
+#quote-content.visible {
+    display: block;
+    opacity: 1;
 }
