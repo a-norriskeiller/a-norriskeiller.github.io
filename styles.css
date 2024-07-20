@@ -28,7 +28,7 @@ body {
 
 .quote-link {
     position: relative;
-    margin-top: 10px;
+    margin-top: auto;
 }
 
 .quote {
@@ -147,7 +147,7 @@ nav ul li a:hover {
 .abstract-content {
     display: none; /* Hidden by default */
     margin-top: 10px;
-    background-color: #2e2e2e; /* Slightly lighter dark grey for contrast */
+    background-color: #1e1e1e; /* Slightly lighter dark grey for contrast */
     padding: 10px;
     border-radius: 5px;
 }
@@ -169,8 +169,9 @@ nav ul li a:hover {
 #random-photo {
     max-width: 100%;
     height: auto;
-    /* max-height: 100vh;
-    display: none; Hide photo initially */
+    max-height: 100vh;
+    object-fit: cover;
+    /*display: none; Hide photo initially */
 }
 
 /* Content Section Initial State */
