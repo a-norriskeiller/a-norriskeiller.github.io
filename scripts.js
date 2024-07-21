@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const rightPanel = document.getElementById("right-panel");
 
     const photos = [
-        'images/clouds.img',
-        'images/shadow.img'
+        'images/clouds.jpg',
+        'images/shadow.jpg'
+        // Add more photo paths as needed
     ];
 
     function loadRandomPhoto() {
