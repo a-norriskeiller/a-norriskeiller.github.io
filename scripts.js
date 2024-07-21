@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     researchLink.addEventListener("click", function (event) {
         event.preventDefault();
+        showResearchContent();
         hideQuoteContent();
         setTimeout(showResearchContent, 1000); // Adjusted timing for 1s fade-out
     });
