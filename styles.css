@@ -9,6 +9,7 @@ body {
 .container {
     display: flex;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 /* Left Column Styles */
@@ -176,6 +177,7 @@ nav ul li a:hover {
     max-height: 100vh;
     object-fit: cover; /* Ensures the photo covers the entire width and crops to fit height */
     display: none; /* Initially hidden */
+    overflow: hidden;
 }
 
 /* Fade-in Animation */
