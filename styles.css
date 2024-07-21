@@ -15,14 +15,14 @@ html, body {
 }
 
 .left-panel {
-    width: 18%;
+    width: 25%;
     background-color: #333;
     color: white;
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start; /* Adjusted to flex-start */
 }
 
 .left-panel h1 {
@@ -45,7 +45,7 @@ html, body {
 }
 
 .right-panel {
-    width: 82%;
+    width: 75%;
     position: relative;
     overflow: hidden;
     margin-bottom: 0; /* Remove grey margin at bottom */
@@ -76,7 +76,7 @@ html, body {
 }
 
 .fade-in {
-    animation: fadeIn 2s forwards;
+    animation: fadeIn 1s forwards; /* Changed to 1s */
 }
 
 .fade-out {
@@ -96,12 +96,22 @@ html, body {
 .section-links {
     display: flex;
     gap: 10px;
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    justify-content: center;
 }
 
 .section-links a {
     cursor: pointer;
     color: white;
     text-decoration: none;
+}
+
+.section-links a:hover {
+    text-decoration: none; /* Remove underline on hover */
 }
 
 .entry {
