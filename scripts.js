@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const rightPanel = document.getElementById("right-panel");
 
     const photos = [
-        'images/clouds.jpg',
-        'images/shadow.jpg'
+        'https://via.placeholder.com/800x600?text=Photo+1',
+        'https://via.placeholder.com/800x600?text=Photo+2',
+        'https://via.placeholder.com/800x600?text=Photo+3'
     ];
 
     function loadRandomPhoto() {
@@ -45,4 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     loadRandomPhoto(); // Load a random photo on page load
+
+    document.querySelectorAll('.subheading').forEach(subheading => {
+        subheading.addEventListener('click', function () {
+            const target = document.getElementById(subheading.dataset.target);
+            target.classList.toggle('hidden');
+        });
+    });
+
+    document.querySelectorAll('.abstract-link').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const abstract = this.nextElementSibling;
+            abstract.classList.toggle('hidden');
+        });
+    });
 });
