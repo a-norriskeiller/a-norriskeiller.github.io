@@ -8,9 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const rightPanel = document.getElementById("right-panel");
 
     const photos = [
-        'https://via.placeholder.com/800x600?text=Photo+1',
-        'https://via.placeholder.com/800x600?text=Photo+2',
-        'https://via.placeholder.com/800x600?text=Photo+3'
+        'images/clouds.img',
+        'images/shadow.img'
     ];
 
     function loadRandomPhoto() {
