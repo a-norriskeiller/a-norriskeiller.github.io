@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const rightPanel = document.getElementById("right-panel");
 
     const photos = [
-        'images/clouds.jpg',
-        'images/shadow.jpg'
-        // Add more photo paths as needed
+        'https://via.placeholder.com/800x600?text=Photo+1',
+        'https://via.placeholder.com/800x600?text=Photo+2',
+        'https://via.placeholder.com/800x600?text=Photo+3'
     ];
 
     function loadRandomPhoto() {
@@ -39,13 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             quoteContent.classList.add("hidden");
             quoteContent.classList.remove("fade-out");
-        }, 1000); // Adjust the timing to match the fade-out animation
+        }, 1000); // Adjusted timing for 1s fade-out
     }
 
     researchLink.addEventListener("click", function (event) {
         event.preventDefault();
         hideQuoteContent();
-        setTimeout(showResearchContent, 1000); // Adjust the timing to match the fade-out animation
+        setTimeout(showResearchContent, 1000); // Adjusted timing for 1s fade-out
     });
 
     cvLink.addEventListener("click", function (event) {
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     quoteLink.addEventListener("click", function (event) {
         event.preventDefault();
         hideQuoteContent();
-        setTimeout(showQuoteContent, 1000); // Adjust the timing to match the fade-out animation
+        setTimeout(showQuoteContent, 1000); // Adjusted timing for 1s fade-out
     });
 
     homeLinkText.addEventListener("click", function (event) {
