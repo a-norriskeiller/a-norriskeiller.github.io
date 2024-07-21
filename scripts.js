@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     cvLink.addEventListener("click", function (event) {
+        hideQuoteContent();
         loadRandomPhoto();
     });
 
