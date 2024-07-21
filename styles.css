@@ -1,192 +1,80 @@
-/* Global Styles */
-body {
+html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevent scrolling */
     font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark grey background */
-    color: #ffffff; /* White text */
+    background-color: #1e1e1e;
 }
 
 .container {
     display: flex;
-    min-height: 100vh;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
-/* Left Column Styles */
-.left-column {
-    flex: 1;
+.left-panel {
+    width: 25%;
+    background-color: #333;
+    color: white;
     padding: 20px;
-    background-color: #1e1e1e; /* Dark grey background for left column */
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
-.left-column h1 {
+.left-panel h1 {
     margin: 0;
-    cursor: pointer; /* Make the header clickable */
 }
 
-nav {
-    margin-top: 20px; /* Adjust spacing below the header */
+.left-panel nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.left-panel a {
+    color: white;
+    text-decoration: none;
+}
+
+.left-panel a:hover {
+    text-decoration: underline;
 }
 
 .quote-link {
+    margin-top: auto;
+    font-size: 10pt;
+}
+
+.right-panel {
+    width: 75%;
     position: relative;
-    margin-top: auto; /* Position the quote link at the bottom */
+    overflow: hidden;
 }
 
-.quote {
+.right-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hidden {
     display: none;
-    font-size: small;
-    margin-top: 1cm;
-    color: #ffffff; /* White text */
-    animation: fadeIn 1s forwards; /* Apply fade-in animation */
 }
 
-.quote-attribution {
-    font-size: small;
-    font-style: normal;
-    color: #ffffff; /* White text */
-}
-
-/* Right Column Styles */
-.right-column {
-    flex: 3;
+.quote-text {
+    color: white;
+    background-color: #333;
     padding: 20px;
-    background-color: #1e1e1e; /* Same dark grey background for right column */
-    position: relative;
-}
-
-.quote-display {
-    display: none;
+    font-size: 12pt;
     position: absolute;
     top: 20%;
     left: 50%;
-    transform: translate(-50%, -20%);
-    background-color: #1e1e1e; /* Match the background color of the left pane */
-    padding: 20px;
-    border-radius: 10px;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    max-width: 80%;
     text-align: center;
-    z-index: 1000;
-}
-
-.quote-display p {
-    color: #ffffff; /* White text */
-}
-
-/* Blackout effect */
-.blacked-out::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.9); /* Almost black background with some opacity */
-    z-index: 500; /* Ensure it's above all other content */
-}
-
-/* Header and Section Styles */
-h1, h2, h3, h4 {
-    color: #ffffff; /* White text */
-}
-
-/* Navigation Styles */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 10px 0;
-}
-
-nav ul li a {
-    color: #ffffff; /* White links */
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    text-decoration: none; /* Remove underline on hover */
-}
-
-/* Research Section Links */
-#research ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#research ul li {
-    margin: 10px 0;
-}
-
-#research ul li a {
-    color: #ffffff; /* White links */
-    text-decoration: none;
-}
-
-#research ul li a:hover {
-    text-decoration: none; /* Remove underline on hover */
-}
-
-/* Entry Styles */
-.entry {
-    margin-bottom: 20px;
-}
-
-.options {
-    margin-top: 5px;
-}
-
-.options a {
-    margin-right: 10px;
-    color: #ffffff; /* White links */
-    text-decoration: none;
-}
-
-.options a:hover {
-    text-decoration: none; /* Remove underline on hover */
-}
-
-.abstract-content {
-    display: none; /* Hidden by default */
-    margin-top: 10px;
-    background-color: #2e2e2e; /* Slightly lighter dark grey for contrast */
-    padding: 10px;
-    border-radius: 5px;
-}
-
-/* Research Section Styles */
-.research-section {
-    display: none; /* Hidden by default */
-    margin-top: 20px;
-}
-
-/* Photo Container Styles */
-#photo-container {
-    text-align: center;
-    padding: 20px;
-    max-height: 100vh;
-    overflow: hidden;
-}
-
-#random-photo {
-    max-width: 100%;
-    height: auto;
-    max-height: 100vh;
-    object-fit: cover; /* Ensures the photo covers the entire width and crops to fit height */
-    display: none; /* Initially hidden */
-    overflow: hidden;
-}
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Fade-in class for content */
-.fade-in {
-    animation: fadeIn 1s forwards;
 }
