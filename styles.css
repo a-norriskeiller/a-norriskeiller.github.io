@@ -4,7 +4,7 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: hidden; /* Prevent scrolling */
-    font-family: Arial, sans-serif;
+    font-family: "Courier New", monospace;
     background-color: #1e1e1e;
 }
 
@@ -116,11 +116,10 @@ html, body {
 
 .entry {
     padding: 10px 20px;
-    margin-top: 50px; /* Ensure space below the subheadings */
-    width: 100%;
+    margin-top: 20px; /* Ensure space below the subheadings */
+    width: 80%;
     box-sizing: border-box;
-    position: absolute;
-    top: 15%; /* Same as subheadings */
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -140,4 +139,16 @@ html, body {
 .accompaniment-link {
     display: block;
     margin-top: 5px;
+}
+
+.subheading {
+    cursor: pointer;
+}
+
+.research-content {
+    display: none;
+}
+
+.show {
+    display: block;
 }
