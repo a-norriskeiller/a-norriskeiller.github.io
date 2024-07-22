@@ -136,6 +136,28 @@ html, body {
     margin-bottom: 10px;
 }
 
+.options {
+    margin-top: 5px;
+}
+
+.options a {
+    margin-right: 10px;
+    color: #ffffff; /* White links */
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+.abstract-content {
+    display: none; /* Hidden by default */
+    margin-top: 10px;
+    background-color: #2e2e2e; /* Slightly lighter dark grey for contrast */
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .paper-link,
 .accompaniment-link {
     display: block;
