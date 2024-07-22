@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cvLink.addEventListener("click", function (event) {
         loadRandomPhoto();
-        window.open('https://www.dropbox.com/s/your_cv_link_here.pdf', '_blank');
     });
 
     quoteLink.addEventListener("click", function (event) {
@@ -71,9 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.subheading').forEach(subheading => {
         subheading.addEventListener('click', function (event) {
             event.preventDefault();
-            const targetId = this.dataset.target;
-            const targetElement = document.getElementById(targetId);
-            targetElement.classList.toggle('show');
+            document.querySelectorAll('.entry').forEach(entry => entry.classList.add('hidden'));
+            document.getElementById(this.dataset.target).classList.remove('hidden');
         });
     });
 
@@ -81,21 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener('click', function (event) {
             event.preventDefault();
             const abstract = this.nextElementSibling;
-            abstract.classList.toggle('show');
-        });
-    });
-
-    document.querySelectorAll('.paper-link').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            window.open('https://www.dropbox.com/s/your_paper_link_here.pdf', '_blank');
-        });
-    });
-
-    document.querySelectorAll('.accompaniment-link').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            window.open('https://www.youtube.com/watch?v=your_youtube_link_here', '_blank');
+            abstract.classList.toggle('hidden');
         });
     });
 });
