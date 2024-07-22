@@ -102,6 +102,8 @@ html, body {
     transform: translateX(-50%);
     width: 100%;
     justify-content: center;
+    color: white;
+    text-decoration: none;
 }
 
 .section-links a {
@@ -123,6 +125,8 @@ html, body {
     top: 15%; /* Same as subheadings */
     left: 50%;
     transform: translateX(-50%);
+    color: white;
+    text-decoration: none;
 }
 
 .abstract {
