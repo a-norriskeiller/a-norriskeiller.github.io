@@ -4,7 +4,7 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: hidden; /* Prevent scrolling */
-    font-family: Arial, sans-serif;
+    font-family: "Lucida Console", monospace;
     background-color: #1e1e1e;
 }
 
@@ -115,10 +115,8 @@ html, body {
 }
 
 .entry {
-    padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 20px;
+    padding: 10px 20px;
+    margin-top: 50px; /* Ensure space below the subheadings */
 }
 
 .abstract {
