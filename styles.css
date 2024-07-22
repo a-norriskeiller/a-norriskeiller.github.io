@@ -116,7 +116,7 @@ html, body {
 
 .entry {
     padding: 10px 20px;
-    margin-top: 50px; /* Ensure space below the subheadings */
+    top: 18%; /* Adjusted top position */
 }
 
 .abstract {
