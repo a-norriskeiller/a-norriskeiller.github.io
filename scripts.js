@@ -68,10 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
     loadRandomPhoto(); // Load a random photo on page load
 
     document.querySelectorAll('.subheading').forEach(subheading => {
-        subheading.addEventListener('click', function () {
+        subheading.addEventListener('click', function (event) {
+            event.preventDefault();
             document.querySelectorAll('.entry').forEach(entry => entry.classList.add('hidden'));
-            const target = document.getElementById(subheading.dataset.target);
-            target.classList.remove('hidden');
+            document.getElementById(this.dataset.target).classList.remove('hidden');
         });
     });
 
