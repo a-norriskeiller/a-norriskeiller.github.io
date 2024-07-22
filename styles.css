@@ -22,7 +22,7 @@ html, body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Adjusted to flex-start */
+    justify-content: flex-start;
 }
 
 .left-panel h1 {
@@ -76,7 +76,7 @@ html, body {
 }
 
 .fade-in {
-    animation: fadeIn 1s forwards; /* Changed to 1s */
+    animation: fadeIn 1s forwards;
 }
 
 .fade-out {
@@ -95,13 +95,13 @@ html, body {
 
 .section-links {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     position: absolute;
-    top: 13%;
-    padding-left: 20px;
+    top: 15%; /* Adjusted to 15% from the top */
+    left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    justify-content: left;
+    justify-content: center;
 }
 
 .section-links a {
@@ -116,6 +116,8 @@ html, body {
 
 .entry {
     padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .abstract {
