@@ -115,6 +115,7 @@ html, body {
 }
 
 .entry {
+    position: absolute;
     padding: 10px 20px;
     top: 18%; /* Adjusted top position */
 }
