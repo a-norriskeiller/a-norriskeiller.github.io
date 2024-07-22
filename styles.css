@@ -129,6 +129,13 @@ html, body {
     text-decoration: none;
 }
 
+.entry a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .abstract {
     padding-left: 20px;
     padding-top: 10px;
@@ -138,8 +145,6 @@ html, body {
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-weight: 500;
-    font-size: 18px;
 }
 
 .paper-link,
