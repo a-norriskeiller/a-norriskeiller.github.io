@@ -4,7 +4,7 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: hidden; /* Prevent scrolling */
-    font-family: "Lucida Console", monospace;
+    font-family: Arial, sans-serif;
     background-color: #1e1e1e;
 }
 
@@ -67,7 +67,7 @@ html, body {
     padding: 20px;
     font-size: 12pt;
     position: absolute;
-    top: 15%; /* Adjusted top position */
+    top: 20%; /* Adjusted top position */
     left: 50%;
     transform: translateX(-50%);
     box-sizing: border-box;
@@ -115,12 +115,29 @@ html, body {
 }
 
 .entry {
-    position: absolute;
     padding: 10px 20px;
-    top: 18%; /* Adjusted top position */
+    margin-top: 50px; /* Ensure space below the subheadings */
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 15%; /* Same as subheadings */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .abstract {
     padding-left: 20px;
     padding-top: 10px;
+}
+
+.abstract-link {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.paper-link,
+.accompaniment-link {
+    display: block;
+    margin-top: 5px;
 }
