@@ -50,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cvLink.addEventListener("click", function (event) {
         loadRandomPhoto();
+        hideQuoteContent();
+        researchContent.classList.add("hidden");
     });
 
     quoteLink.addEventListener("click", function (event) {
