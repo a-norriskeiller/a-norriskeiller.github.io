@@ -150,8 +150,14 @@ html, body {
     margin-bottom: 0px;
 }
 
+.author-list {
+    display: block;
+    margin-top: 1px;
+}
+
 .paper-link,
 .accompaniment-link {
     display: block;
     margin-top: 1px;
+    text-decoration: underline;
 }
