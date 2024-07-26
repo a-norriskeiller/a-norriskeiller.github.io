@@ -121,7 +121,7 @@ html, body {
 
 .entry {
     padding: 1px 1px;
-    /*margin-top: 50px; Ensure space below the subheadings */
+    margin-top: 50px; /*Ensure space below the subheadings*/
     width: 100%;
     box-sizing: border-box;
     position: absolute;
