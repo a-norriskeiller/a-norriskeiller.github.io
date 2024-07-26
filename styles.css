@@ -26,7 +26,7 @@ html, body {
 }
 
 .left-panel h1 {
-    margin: 0;
+    margin: auto;
     width: 75%;
     font-size: 17pt;
     cursor: pointer;
@@ -104,8 +104,7 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     width: 75%;
-    /*justify-content: left;*/
-    justify-content: space-between;
+    justify-content: left;
     color: white;
     text-decoration: none;
 }
