@@ -120,8 +120,8 @@ html, body {
 }
 
 .entry {
-    padding: 1px 20px;
-    margin-top: 50px; /* Ensure space below the subheadings */
+    padding: 1px 1px;
+    /*margin-top: 50px; Ensure space below the subheadings */
     width: 100%;
     box-sizing: border-box;
     position: absolute;
@@ -146,12 +146,12 @@ html, body {
 
 .abstract-link {
     display: block;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .paper-link,
 .accompaniment-link {
     display: block;
-    margin-top: 5px;
+    margin-top: 1px;
 }
