@@ -43,7 +43,7 @@ html, body {
 
 .quote-link {
     position:absolute;
-    bottom:3px;
+    bottom:5px;
     margin: 0;
     width: 20%;
     font-size: 9pt;
@@ -103,7 +103,7 @@ html, body {
     display: flex;
     gap: 20px;
     position: absolute;
-    top: 12%; 
+    top: 15%; 
     left: 10%;
     /*transform: translateX(-50%);*/
     width: 75%;
@@ -128,7 +128,7 @@ html, body {
     width: 100%;
     box-sizing: border-box;
     position: absolute;
-    top: 12%; /* Same as subheadings */
+    top: 15%; /* Same as subheadings */
     left: 50%;
     transform: translateX(-50%);
     color: white;
