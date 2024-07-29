@@ -10,7 +10,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const photos = [
         'images/clouds.jpg',
-        'images/shadow.jpg'
+        'images/clouds2.jpg',
+        'images/clouds3.jpg',
+        'images/fields.jpg',
+        'images/ground.jpg',
+        'images/leaves.jpg',
+        'images/pondweed1.jpg',
+        'images/rain.jpg',
+        'images/rain2.jpg',
+        'images/shadow.jpg',
+        'images/shadow3.jpg',
+        'images/sky2.jpg',
+        'images/sky3.jpg',
+        'images/tcr.jpg',
+        'images/thames.jpg',
+        'images/tiles.jpg',
+        'images/tiles2.jpg',
+        'images/trees.jpg',
+        'images/wetlands.jpg',
+        'images/worms.jpg',
         // Add more photo paths as needed
     ];
 
