@@ -103,7 +103,7 @@ html, body {
     display: flex;
     gap: 20px;
     position: absolute;
-    top: 14%; 
+    top: 13%; 
     left: 10%;
     /*transform: translateX(-50%);*/
     width: 75%;
@@ -128,7 +128,7 @@ html, body {
     width: 100%;
     box-sizing: border-box;
     position: absolute;
-    top: 14%; /* Same as subheadings */
+    top: 13%; /* Same as subheadings */
     left: 50%;
     transform: translateX(-50%);
     color: white;
