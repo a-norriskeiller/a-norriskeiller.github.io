@@ -103,7 +103,7 @@ html, body {
     display: flex;
     gap: 20px;
     position: absolute;
-    top: 15%; 
+    top: 14%; 
     left: 10%;
     /*transform: translateX(-50%);*/
     width: 75%;
@@ -123,12 +123,12 @@ html, body {
 }
 
 .entry {
-    padding: 10px 1px;
+    padding: 1px 1px;
     margin-top: 50px; /*Ensure space below the subheadings*/
     width: 100%;
     box-sizing: border-box;
     position: absolute;
-    top: 15%; /* Same as subheadings */
+    top: 14%; /* Same as subheadings */
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -141,6 +141,8 @@ html, body {
     font-size: 12px;
     font-weight: 500;
     padding-left: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .abstract {
