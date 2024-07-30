@@ -29,8 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         'images/tiles.jpg',
         'images/tiles2.jpg',
         'images/trees.jpg',
-        'images/wetlands.jpg',
-        'images/worms.jpg',
+        'images/wetlands.jpg'
         // Add more photo paths as needed
     ];
 
