@@ -140,15 +140,11 @@ html, body {
     text-decoration: none;
     font-size: 12px;
     font-weight: 500;
-    padding-left: 10px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding: 2px 10px 2px 10px;
 }
 
 .abstract {
-    padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 20px 10px 20px;
 }
 
 .abstract-link {
