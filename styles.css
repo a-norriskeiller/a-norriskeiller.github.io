@@ -42,7 +42,7 @@ html, body {
 }
 
 .quote-link {
-    position:absolute;
+    position:relative;
     bottom:5px;
     margin: 0;
     width: 20%;
