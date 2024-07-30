@@ -140,7 +140,7 @@ html, body {
     text-decoration: none;
     font-size: 12px;
     font-weight: 500;
-    padding: 2px 10px 2px 10px;
+    padding: 2px 10px;
 }
 
 .abstract {
@@ -151,11 +151,4 @@ html, body {
     display: block;
     margin-top: 10px;
     margin-bottom: 0px;
-}
-
-.paper-link,
-.accompaniment-link {
-    display: block;
-    margin-top: 1px;
-    text-decoration: underline;
 }
