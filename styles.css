@@ -1,0 +1,243 @@
+/* Fade timings: adjust these to taste */
+:root {
+    --view-fade: 1s;      /* photo / research / quote crossfade */
+    --photo-fade: 1.2s;   /* new random photo */
+    --abstract-fade: 0.4s;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* ---------- Left panel (unchanged) ---------- */
+.left-panel {
+    width: 22%;
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.left-panel h1 {
+    margin: 0;
+    width: 90%;
+    font-size: 17pt;
+    cursor: pointer;
+}
+
+.left-panel a {
+    color: white;
+    text-decoration: none;
+}
+
+.quote-link {
+    position: fixed;
+    bottom: 5px;
+    margin: 0;
+    width: 20%;
+    font-size: 9pt;
+}
+
+/* ---------- Right panel: stacked views that crossfade ---------- */
+.right-panel {
+    width: 78%;
+    position: relative;
+    overflow: hidden;
+}
+
+.view {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    /* hide after the fade-out has finished, so hidden views can't be clicked or tabbed into */
+    transition: opacity var(--view-fade) ease, visibility 0s linear var(--view-fade);
+}
+
+.view.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--view-fade) ease, visibility 0s;
+}
+
+/* Photo view: two images so a new photo crossfades over the old one */
+.photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity var(--photo-fade) ease;
+}
+
+.photo.is-shown {
+    opacity: 1;
+}
+
+/* ---------- Research: one scrolling page ---------- */
+#research-content {
+    overflow-y: auto;
+    color: white;
+}
+
+.research-inner {
+    width: 75%;
+    margin-left: 10%;
+    padding: 13vh 0 12vh;
+}
+
+/* Horizontal rule between sections */
+.research-group + .research-group {
+    margin-top: 34px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.research-group h2 {
+    font-size: 14pt;
+    font-weight: 600;
+    margin: 0 0 18px;
+}
+
+.paper {
+    margin-bottom: 22px;
+}
+
+.paper h3 {
+    margin: 0;
+    font-size: 12pt;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.abstract-toggle {
+    all: unset;
+    cursor: pointer;
+}
+
+.status {
+    font-weight: 400;
+}
+
+.abstract-toggle:focus-visible,
+.left-panel a:focus-visible,
+.paper-meta a:focus-visible {
+    outline: 1px solid white;
+    outline-offset: 3px;
+}
+
+/* Abstract expands and fades in place */
+.abstract {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows var(--abstract-fade) ease, opacity var(--abstract-fade) ease;
+}
+
+.abstract > div {
+    overflow: hidden;
+}
+
+.abstract p {
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 10pt;
+    line-height: 1.45;
+}
+
+.abstract.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.paper-meta {
+    margin: 4px 0 0;
+    font-size: 11pt;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+}
+
+.paper-meta a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ---------- Quote ---------- */
+.quote-text {
+    color: white;
+    background-color: #1e1e1e;
+    padding: 20px;
+    font-size: 10pt;
+    position: absolute;
+    top: 18%;
+    box-sizing: border-box;
+    max-width: 85%;
+    margin: 0;
+    text-align: left;
+}
+
+/* ---------- Retro glitter "New!" badge ---------- */
+.new-badge {
+    display: inline-block;
+    margin-left: 6px;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 11pt;
+    animation: glow 2.4s ease-in-out infinite;
+}
+
+.new-badge span span {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff8fd0, #fff3a1, #8fe3ff, #d9a4ff, #ff8fd0);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation:
+        shimmer 3s linear infinite,
+        wave 1.6s ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.25s), calc(var(--i) * 0.12s);
+}
+
+@keyframes shimmer {
+    to { background-position: 400% 0; }
+}
+
+@keyframes wave {
+    0%, 60%, 100% { transform: translateY(0); }
+    30%           { transform: translateY(-3px); }
+}
+
+@keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 0 rgba(255, 220, 245, 0)); }
+    50%      { filter: drop-shadow(0 0 4px rgba(255, 220, 245, 0.85)); }
+}
+
+/* Visitors who ask their device for reduced motion get instant switches */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --view-fade: 0s;
+        --photo-fade: 0s;
+        --abstract-fade: 0s;
+    }
+    .new-badge,
+    .new-badge span span {
+        animation: none;
+    }
+}
