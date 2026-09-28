@@ -1,14 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const photos = [
-        'images/clouds.jpg', 'images/clouds2.jpg', 'images/clouds3.jpg',
-        'images/fields.jpg', 'images/ground.jpg', 'images/leaf.jpg',
-        'images/leaves.jpg', 'images/pondweed1.jpg', 'images/rain.jpg',
-        'images/rain2.jpg', 'images/shadow.jpg', 'images/shadow3.jpg',
-        'images/sky.jpg', 'images/sky2.jpg', 'images/sky3.jpg',
-        'images/tcr.jpg', 'images/thames.jpg', 'images/tiles.jpg',
-        'images/tiles2.jpg', 'images/trees.jpg', 'images/wetlands.jpg'
-        // Add more photo paths as needed
-    ];
+    // Number of photos in the images folder, named image1.jpg ... imageN.jpg.
+    // prepare_photos.py prints this number when it finishes.
+    const PHOTO_COUNT = 31;
+
+    const photos = [];
+    for (let i = 1; i <= PHOTO_COUNT; i++) photos.push("images/image" + i + ".jpg");
 
     const views = {
         photo: document.getElementById("photo-view"),
@@ -35,10 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // fromBlack: hide whatever photo was showing first, so the new one fades up
     // from the dark background instead of crossfading over the old one.
     function newPhoto(fromBlack) {
+        if (!photos.length) return;
         let src;
         do { src = photos[Math.floor(Math.random() * photos.length)]; }
         while (photos.length > 1 && src === lastPhoto);
-        lastPhoto = src;
 
         if (fromBlack) {
             imgs.forEach(function (img) {
@@ -55,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function reveal() {
             if (token !== loadToken) return;
+            lastPhoto = src;
             back.style.zIndex = 1;
             front.style.zIndex = 0;
             back.classList.add("is-shown");
@@ -67,6 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
             requestAnimationFrame(reveal);
         } else {
             back.onload = reveal;
+            // If a photo is missing (e.g. PHOTO_COUNT is set too high), drop it
+            // from the list and try another
+            back.onerror = function () {
+                const i = photos.indexOf(src);
+                if (i !== -1) photos.splice(i, 1);
+                if (token === loadToken) newPhoto(false);
+            };
             back.src = src;
         }
     }
