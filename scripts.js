@@ -29,24 +29,46 @@ document.addEventListener("DOMContentLoaded", function () {
         current = name;
     }
 
-    // Load a random photo (never the same one twice in a row) into the
-    // back image, then fade it in over the front one once it has loaded.
-    function newPhoto() {
+    let loadToken = 0;
+
+    // Load a random photo (never the same one twice in a row) and fade it in.
+    // fromBlack: hide whatever photo was showing first, so the new one fades up
+    // from the dark background instead of crossfading over the old one.
+    function newPhoto(fromBlack) {
         let src;
         do { src = photos[Math.floor(Math.random() * photos.length)]; }
         while (photos.length > 1 && src === lastPhoto);
         lastPhoto = src;
 
+        if (fromBlack) {
+            imgs.forEach(function (img) {
+                img.style.transition = "none";
+                img.classList.remove("is-shown");
+                void img.offsetWidth;          // apply instantly, without a fade
+                img.style.transition = "";
+            });
+        }
+
+        const token = ++loadToken;             // ignore loads a newer click has superseded
         const back = imgs[1 - frontImg];
         const front = imgs[frontImg];
-        back.onload = function () {
+
+        function reveal() {
+            if (token !== loadToken) return;
             back.style.zIndex = 1;
             front.style.zIndex = 0;
             back.classList.add("is-shown");
             front.classList.remove("is-shown");
             frontImg = 1 - frontImg;
-        };
-        back.src = src;
+        }
+
+        // An image that already holds this photo won't fire onload again
+        if (back.getAttribute("src") === src && back.complete) {
+            requestAnimationFrame(reveal);
+        } else {
+            back.onload = reveal;
+            back.src = src;
+        }
     }
 
     function on(id, handler) {
@@ -57,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     on("home-link-text", function () {
-        newPhoto();
+        newPhoto(current !== "photo");         // from black if returning from another page
         showView("photo");
     });
     on("research-link", function () { showView("research"); });
