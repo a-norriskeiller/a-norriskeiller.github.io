@@ -132,6 +132,8 @@ html, body {
 
 .status {
     font-weight: 400;
+    font-size: 9.5pt;
+    color: rgba(255, 255, 255, 0.72);
 }
 
 .abstract-toggle:focus-visible,
@@ -192,41 +194,54 @@ html, body {
     text-align: left;
 }
 
-/* ---------- Retro glitter "New!" badge ---------- */
+/* ---------- Retro Blingee "New" badge ---------- */
 .new-badge {
+    position: relative;
     display: inline-block;
     margin-left: 6px;
-    font-style: italic;
-    font-weight: 700;
-    font-size: 11pt;
-    animation: glow 2.4s ease-in-out infinite;
+    padding: 0 12px;
+    font: italic 900 12pt "Arial Black", Arial, sans-serif;
+    vertical-align: baseline;
 }
 
-.new-badge span span {
-    display: inline-block;
-    background: linear-gradient(90deg, #ff8fd0, #fff3a1, #8fe3ff, #d9a4ff, #ff8fd0);
-    background-size: 400% 100%;
+/* Yellow glitter: three layers of specks that jump position in steps */
+.new-badge em {
+    font-style: inherit;
+    padding-right: 3px;
+    color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
-    animation:
-        shimmer 3s linear infinite,
-        wave 1.6s ease-in-out infinite;
-    animation-delay: calc(var(--i) * -0.25s), calc(var(--i) * 0.12s);
+    background-color: #ffd21a;
+    background-image:
+        radial-gradient(circle, #ffffff 0 0.7px, transparent 1.2px),
+        radial-gradient(circle, #fff6b8 0 0.6px, transparent 1.1px),
+        radial-gradient(circle, #ff9f00 0 0.6px, transparent 1.1px);
+    background-size: 5px 5px, 7px 6px, 6px 8px;
+    animation: glitter 0.6s steps(3) infinite;
 }
 
-@keyframes shimmer {
-    to { background-position: 400% 0; }
+@keyframes glitter {
+    33% { background-position: 2px 1px, 3px 2px, 1px 3px; }
+    66% { background-position: 1px 3px, 0 4px, 4px 1px; }
 }
 
-@keyframes wave {
-    0%, 60%, 100% { transform: translateY(0); }
-    30%           { transform: translateY(-3px); }
+/* Twinkling stars */
+.new-badge i {
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+    color: #fffbe0;
+    font-size: 9pt;
+    animation: twinkle 1.4s ease-in-out infinite;
 }
 
-@keyframes glow {
-    0%, 100% { filter: drop-shadow(0 0 0 rgba(255, 220, 245, 0)); }
-    50%      { filter: drop-shadow(0 0 4px rgba(255, 220, 245, 0.85)); }
+.new-badge i:nth-of-type(1) { left: -2px; top: -8px; }
+.new-badge i:nth-of-type(2) { right: -1px; top: -4px; font-size: 7pt; animation-delay: -0.5s; }
+.new-badge i:nth-of-type(3) { right: 10px; bottom: -9px; font-size: 6pt; animation-delay: -0.9s; }
+
+@keyframes twinkle {
+    0%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
+    50%      { transform: scale(1) rotate(90deg); opacity: 1; }
 }
 
 /* Visitors who ask their device for reduced motion get instant switches */
@@ -236,8 +251,12 @@ html, body {
         --photo-fade: 0s;
         --abstract-fade: 0s;
     }
-    .new-badge,
-    .new-badge span span {
+    .new-badge em {
         animation: none;
+    }
+    .new-badge i {
+        animation: none;
+        transform: none;
+        opacity: 1;
     }
 }
