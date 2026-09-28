@@ -1,106 +1,76 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const randomPhoto = document.getElementById("random-photo");
-    const researchLink = document.getElementById("research-link");
-    const cvLink = document.getElementById("cv-link");
-    const quoteLink = document.getElementById("quote-link");
-    const homeLinkText = document.getElementById("home-link-text");
-    const researchContent = document.getElementById("research-content");
-    const quoteContent = document.getElementById("quote-content");
-    const rightPanel = document.getElementById("right-panel");
-
     const photos = [
-        'images/clouds.jpg',
-        'images/clouds2.jpg',
-        'images/clouds3.jpg',
-        'images/fields.jpg',
-        'images/ground.jpg',
-        'images/leaf.jpg',
-        'images/leaves.jpg',
-        'images/pondweed1.jpg',
-        'images/rain.jpg',
-        'images/rain2.jpg',
-        'images/shadow.jpg',
-        'images/shadow3.jpg',
-        'images/sky.jpg',
-        'images/sky2.jpg',
-        'images/sky3.jpg',
-        'images/tcr.jpg',
-        'images/thames.jpg',
-        'images/tiles.jpg',
-        'images/tiles2.jpg',
-        'images/trees.jpg',
-        'images/wetlands.jpg'
+        'images/clouds.jpg', 'images/clouds2.jpg', 'images/clouds3.jpg',
+        'images/fields.jpg', 'images/ground.jpg', 'images/leaf.jpg',
+        'images/leaves.jpg', 'images/pondweed1.jpg', 'images/rain.jpg',
+        'images/rain2.jpg', 'images/shadow.jpg', 'images/shadow3.jpg',
+        'images/sky.jpg', 'images/sky2.jpg', 'images/sky3.jpg',
+        'images/tcr.jpg', 'images/thames.jpg', 'images/tiles.jpg',
+        'images/tiles2.jpg', 'images/trees.jpg', 'images/wetlands.jpg'
         // Add more photo paths as needed
     ];
 
-    function loadRandomPhoto() {
-        const randomIndex = Math.floor(Math.random() * photos.length);
-        randomPhoto.src = photos[randomIndex];
-        randomPhoto.classList.remove("hidden");
+    const views = {
+        photo: document.getElementById("photo-view"),
+        research: document.getElementById("research-content"),
+        quote: document.getElementById("quote-content")
+    };
+    const imgs = document.querySelectorAll("#photo-view .photo");
+    let current = "photo";
+    let frontImg = 0;
+    let lastPhoto = null;
+
+    // Crossfade to a view. CSS handles the fade; a new click simply
+    // retargets it, so there are no timers to go stale.
+    function showView(name) {
+        if (name === current) return;
+        views[current].classList.remove("is-active");
+        views[name].classList.add("is-active");
+        current = name;
     }
 
-    function showResearchContent() {
-        randomPhoto.classList.add("hidden");
-        quoteContent.classList.add("hidden");
-        researchContent.classList.remove("hidden");
+    // Load a random photo (never the same one twice in a row) into the
+    // back image, then fade it in over the front one once it has loaded.
+    function newPhoto() {
+        let src;
+        do { src = photos[Math.floor(Math.random() * photos.length)]; }
+        while (photos.length > 1 && src === lastPhoto);
+        lastPhoto = src;
+
+        const back = imgs[1 - frontImg];
+        const front = imgs[frontImg];
+        back.onload = function () {
+            back.style.zIndex = 1;
+            front.style.zIndex = 0;
+            back.classList.add("is-shown");
+            front.classList.remove("is-shown");
+            frontImg = 1 - frontImg;
+        };
+        back.src = src;
     }
 
-    function showQuoteContent() {
-        randomPhoto.classList.add("hidden");
-        researchContent.classList.add("hidden");
-        quoteContent.classList.remove("hidden");
-        quoteContent.classList.add("fade-in");
-    }
-
-    function hideQuoteContent() {
-        quoteContent.classList.remove("fade-in");
-        quoteContent.classList.add("fade-out");
-        setTimeout(() => {
-            quoteContent.classList.add("hidden");
-            quoteContent.classList.remove("fade-out");
-        }, 1000); // Adjusted timing for 1s fade-out
-    }
-
-    researchLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        hideQuoteContent();
-        setTimeout(showResearchContent, 1000); // Adjusted timing for 1s fade-out
-    });
-
-    cvLink.addEventListener("click", function (event) {
-        loadRandomPhoto();
-        hideQuoteContent();
-        researchContent.classList.add("hidden");
-    });
-
-    quoteLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        hideQuoteContent();
-        setTimeout(showQuoteContent, 1000); // Adjusted timing for 1s fade-out
-    });
-
-    homeLinkText.addEventListener("click", function (event) {
-        event.preventDefault();
-        loadRandomPhoto();
-        researchContent.classList.add("hidden");
-        quoteContent.classList.add("hidden");
-    });
-
-    loadRandomPhoto(); // Load a random photo on page load
-
-    document.querySelectorAll('.subheading').forEach(subheading => {
-        subheading.addEventListener('click', function (event) {
+    function on(id, handler) {
+        document.getElementById(id).addEventListener("click", function (event) {
             event.preventDefault();
-            document.querySelectorAll('.entry').forEach(entry => entry.classList.add('hidden'));
-            document.getElementById(this.dataset.target).classList.remove('hidden');
+            handler();
+        });
+    }
+
+    on("home-link-text", function () {
+        newPhoto();
+        showView("photo");
+    });
+    on("research-link", function () { showView("research"); });
+    on("quote-link", function () { showView("quote"); });
+    // The CV link just opens in a new tab and leaves this page alone.
+
+    document.querySelectorAll(".abstract-toggle").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const abstract = document.getElementById(button.getAttribute("aria-controls"));
+            const open = abstract.classList.toggle("is-open");
+            button.setAttribute("aria-expanded", open);
         });
     });
 
-    document.querySelectorAll('.abstract-link').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const abstract = this.nextElementSibling;
-            abstract.classList.toggle('hidden');
-        });
-    });
+    newPhoto();
 });
